@@ -13,73 +13,86 @@
     <link>
     <link rel="stylesheet" href="./style.css">
 </head>
+<nav class="nav" style="font-size: 24px; color: white;">Weather Dashboard</nav>
+<body class="bg-success">
 
-<body>
-    <nav>Weather Dashboard</nav>
-    <div>
+    <script>function reply_click(clicked_id) {
+            var buttonID = clicked_id;
+            document.getElementById("search-input").value = buttonID
+            console.log(buttonID)
+            document.getElementById("submit").click()
+        }</script>
+
+    <div class=sidebar style="display: flex;">
         <div>
-            <h1>Search For A City</h1>
-            <form id="search-form">
-                <input class="form-input" id="search-input" type="text" placeholder="San Diego">
-                <button class="btn btn-info btn-block" type="submit" id="submit">Search</button>
-            </form>
-            <div class="list-group" id="history"></div>
+            <div class="col-6 card text-white bg-success mb-3" style="margin:25px">
+                <h1 style="margin:30px; text-align: start;">Search For A City</h1>
+                <form id="search-form" style="margin-left: 10px">
+                    <input class="form-input" id="search-input" type="text" placeholder="San Diego" >
+                    <button class="btn btn-info btn-block btn-outline-dark" style="margin-left: 60px" type="submit" id="submit">Search</button>
+                </form>
+                <div class="list-group" id="history" style="padding-left: 40px">
+                    <ul id="history-list" style="list-style: none;">
+                    </ul>
+                </div>
+            </div>
         </div>
+        <div class="card text-white bg-success mb-3 col-6">
 
-        <div>
-
-            <h2><span id="city"></span>
+            <h2 class="card-header"><span id="city"></span>
                 <span id="currentDay"></span>
                 <span id="icon"></span>
             </h2>
-            <div id="result-content">
-                <div>Temp: <span id="temp"></span>°F</div>
-                <div>Wind: <span id="wind"></span>MPH</div>
-                <div>Humidity: <span id="humidity"></span>%</div>
-                <div>UV Index: <span id="uvi"></span></div>
+            <div class="card-body" id="result-content" style="font-size:24px;">
+                <div><span id="temp"></span></div>
+                <div><span id="wind"></span></div>
+                <div><span id="humidity"></span></div>
+                <div><span id="uvi" class="text-black"></span></div>
             </div>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-evenly; font-size:24px;">
+        <h1 style="color: White;">5-Day Forecast:</h1>
+        <div class="card text-white bg-success mb-3" style="max-width: 24rem;" id="forecast-content0">
+            <h1 id=dayForecast0>
+            </h1><span id="iconForecast0"></span>
+            <div><span id="tempForecast0"></span></div>
+            <div><span id="windForecast0"></span></div>
+            <div><span id="humidityForecast0"></span></div>
+        </div>
+        <div class="card text-white bg-success mb-3" style="max-width: 24rem;" id="forecast-content1">
+            <h1 id=dayForecast1>
+
+            </h1><span id="iconForecast1"></span>
+            <div><span id="tempForecast1"></span></div>
+            <div><span id="windForecast1"></span></div>
+            <div><span id="humidityForecast1"></span></div>
         </div>
 
-        <div>
-            <h1>5-Day Forecast:<span id="forecast-text"></span></h1>
-            <div id="forecast-content0">
-                <h1 id=dayForecast0>
-                    
-                </h1><span id="iconForecast0"></span>
-                <div>Temp: <span id="tempForecast0"></span></div>
-                <div>Wind: <span id="windForecast0"></span></div>
-                <div>Humidity: <span id="humidityForecast0"></span></div>
-            </div>
-            </div>
-            <div id="forecast-content1">
-                <h1 id=dayForecast1>
-                    
-                </h1><span id="iconForecast1"></span>
-                <div>Temp: <span id="tempForecast1"></span></div>
-                <div>Wind: <span id="windForecast1"></span></div>
-                <div>Humidity: <span id="humidityForecast1"></span></div>
-            </div>
-            <div id="forecast-content2"><h1 id=dayForecast2>
-                
+        <div class="card text-white bg-success mb-3" style="max-width: 24rem;" id="forecast-content2">
+            <h1 id=dayForecast2>
             </h1><span id="iconForecast2"></span>
-            <div>Temp: <span id="tempForecast2"></span></div>
-            <div>Wind: <span id="windForecast2"></span></div>
-            <div>Humidity: <span id="humidityForecast2"></span></div>
-        </div></div>
-            <div id="forecast-content3"><h1 id=dayForecast3>
-                
-            </h1><span id="iconForecast3"></span>
-            <div>Temp: <span id="tempForecast3"></span></div>
-            <div>Wind: <span id="windForecast3"></span></div>
-            <div>Humidity: <span id="humidityForecast3"></span></div>
-        </div></div>
-            <div id="forecast-content4"><h1 id=dayForecast4>
-                </h1><span id="iconForecast4"></span>
-            <div>Temp: <span id="tempForecast4"></span></div>
-            <div>Wind: <span id="windForecast4"></span></div>
-            <div>Humidity: <span id="humidityForecast4"></span></div>
-        </div></div>
+            <div><span id="tempForecast2"></span></div>
+            <div><span id="windForecast2"></span></div>
+            <div><span id="humidityForecast2"></span></div>
         </div>
+
+        <div class="card text-white bg-success mb-3" style="max-width: 24rem;" id="forecast-content3">
+            <h1 id=dayForecast3>
+            </h1><span id="iconForecast3"></span>
+            <div><span id="tempForecast3"></span></div>
+            <div><span id="windForecast3"></span></div>
+            <div><span id="humidityForecast3"></span></div>
+        </div>
+        <div class="card text-white bg-success mb-3" style="max-width: 24rem;" id="forecast-content4">
+            <h1 id=dayForecast4>
+            </h1><span id="iconForecast4"></span>
+            <div><span id="tempForecast4"></span></div>
+            <div><span id="windForecast4"></span></div>
+            <div><span id="humidityForecast4"></span></div>
+        </div>
+    </div>
+    </div>
 
 
     </div>

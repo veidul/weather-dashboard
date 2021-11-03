@@ -1,9 +1,17 @@
+/* add fonts */
+
 .favorable {
-    background-color:Green;
+    background-color:rgb(5, 102, 5);
 }
 .moderate {
     background-color: yellow;
 }
 .severe {
     background-color: red;
+}
+.nav {
+    display:flex;
+    height: 3vh;
+    width:max-content;
+    border: 5px;
 }
