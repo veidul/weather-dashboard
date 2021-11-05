@@ -1,8 +1,8 @@
 $(document).ready(function () {
     var search = "";
     var date = $('#currentDay')
-    var api = 'http://api.openweathermap.org/data/2.5/weather?q=';
-    var forecastAPI = 'http://api.openweathermap.org/data/2.5/forecast?q=';
+    var api = 'https://api.openweathermap.org/data/2.5/weather?q=';
+    var forecastAPI = 'https://api.openweathermap.org/data/2.5/forecast?q=';
     var apiKey = '&appid=aed5df8b172a70dc402500f4df59160c'
     var units = '&units=imperial';
     var searchInput = document.querySelector('#search-input')
@@ -55,7 +55,7 @@ $(document).ready(function () {
                     response.json().then(function (data) {
                         console.log(data);
                         function displayForecast(data, number, dayNumber) {
-                            forecastIcon = "http://openweathermap.org/img/wn/" + data.list[dayNumber].weather[0].icon + ".png"
+                            forecastIcon = "https://openweathermap.org/img/wn/" + data.list[dayNumber].weather[0].icon + ".png"
                             windForecastEl[number].text("Wind: " + data.list[dayNumber].wind.speed + " MPH")
                             tempForecastEl[number].text("Temp: " + data.list[dayNumber].main.temp + " °F")
                             dateForecastEl[number].text(moment(data.list[dayNumber].dt_txt).format('M/DD/YY'))
