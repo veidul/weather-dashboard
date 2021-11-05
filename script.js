@@ -36,12 +36,14 @@ $(document).ready(function () {
         event.preventDefault();
         search = searchInput.value.trim()
         console.log(search);
-        $("#history-list").append(`<li><button class="btn btn-info btn-block btn-outline-dark" id=${search} onClick="reply_click(this.id)">${search}<btn></li>`);
         getWeather(search);
         getForecast(search);
         history = JSON.parse(localStorage.getItem("searchHistory") || "[]")
-        history.push(search)
+        if(!history.includes(search)){history.push(search)
         localStorage.setItem("searchHistory", JSON.stringify(history))
+        $("#history-list").append(`<li><button class="btn btn-info btn-block btn-outline-dark" id=${search} onClick="reply_click(this.id)">${search}<btn></li>`);
+    }
+
     })
     
     function getForecast(search) {
